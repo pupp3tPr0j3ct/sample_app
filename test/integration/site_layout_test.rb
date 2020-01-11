@@ -15,12 +15,13 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("Contact")
     get signup_path
     assert_select "title", full_title("Sign up")
-    # Logged in link functionality
+    # While logged in
     @user = users(:archer)
     log_in_as(@user)
     get root_path
     assert_select "a[href=?]", users_path
     assert_select "a[href=?]", '#'
+    # Note: not able to assert the selection of "Profile" and "Settings" in this directory
     assert_select "a[href=?]", logout_path
     # assert_select "title", full_title("Users")...looking to assert correct string
     get users_path
