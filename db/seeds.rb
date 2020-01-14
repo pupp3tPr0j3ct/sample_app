@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create a sample user with create!. This raises an exemption for an invalid user rather than returning false.
-User.create!(name:     "Example User",
-              email:    "example@railstutorial.org",
-              password:              "foobar",
-              password_confirmation: "foobar")
+User.create!(name:                      "Example User",
+              email:                    "example@railstutorial.org",
+              password:                 "foobar",
+              password_confirmation:    "foobar",
+              admin:                    true)
 
 # Create fake names with the Faker Gem utilizing a loop.
 
