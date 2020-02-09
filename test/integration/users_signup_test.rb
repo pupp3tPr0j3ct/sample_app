@@ -47,8 +47,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path(user.activation_token, email: user.email)
     user.activate
     assert user.reload.activated?
+    log_in_as user
     follow_redirect!
-    assert_template 'users/show' # Not redirecting to users page.
+    assert_template 'users/show'
     assert is_logged_in?
   end
 end
