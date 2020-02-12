@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'protected-anchorage-74032.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smpt_settings = {
+  ActionMailer::Base.smtp_settings = {
     :addresses      =>  'smtp.sendgrid.net',
     :port           =>  '587',
     :authentication =>  :plain,
