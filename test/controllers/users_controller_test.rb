@@ -57,15 +57,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  # # Makes sure an inactive user search renders root page.
-  # test "should redirect to root if user is not active" do
-  #   assert_not @inactive_user.activated?
-  #   assert_redirected_to root_url
-  # end
-
   # Makes sure an active user search renders users page.
   test "should render active users page" do
     assert @other_user.activated?
-    #assert_template @other_user_path
   end
 end
