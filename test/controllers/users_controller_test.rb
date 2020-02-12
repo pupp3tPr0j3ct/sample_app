@@ -7,7 +7,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @other_user = users(:archer)
   end
 
-  test "should redirect indext when not logged in" do
+  test "should redirect index when not logged in" do
     get users_path
     assert_redirected_to login_url
   end
@@ -55,5 +55,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_path(@user)
     end
     assert_redirected_to root_url
+  end
+
+  # Makes sure an active user search renders users page.
+  test "should render active users page" do
+    assert @other_user.activated?
   end
 end
