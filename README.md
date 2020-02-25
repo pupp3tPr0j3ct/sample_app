@@ -28,4 +28,25 @@ Finally, run the test suite to verify that everything is working correctly:
 $ rails server
 ```
 
+# Temporary workaround to SendGrid environment issues...
+
+Run these ecommands in terminal:
+
+```
+$ echo "export SENDGRID_API_KEY='YOUR_KEY_HERE'" > sendgrid.env
+```
+
+Next, run this command:
+
+```
+$ echo "sendgrid.env" >> .gitignore
+```
+
+Finally, input this command:
+
+```
+source ./sendgrid.env
+```
+
+
 For more information, see the [*Ruby on Rails Tutorial* book] (http://www.railstutorial.org/book).
