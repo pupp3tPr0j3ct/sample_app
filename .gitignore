@@ -22,5 +22,8 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+# Ignore SendGrid api key settings file.
+sendgrid.env
 sendgrid.env
 sendgrid.env
