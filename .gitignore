@@ -28,3 +28,6 @@ sendgrid.env
 sendgrid.env
 sendgrid.env
 sendgrid.env
+
+# Ignore uploaded test images.
+/public/uploads
