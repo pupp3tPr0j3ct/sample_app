@@ -85,7 +85,7 @@ class User < ApplicationRecord
         Micropost.where("user_id = ?", id)
     end
 
-    # Follow a user.
+    # Follows a user.
     def follow(other_user)
         active_relationships.create(followed_id: other_user.id)
     end

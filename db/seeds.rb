@@ -9,6 +9,8 @@
 #
 #
 # Create a sample user with create!. This raises an exemption for an invalid user rather than returning false.
+
+# Users
 User.create!(name:                     "Example User",
              email:                    "example@railstutorial.org",
              password:                 "foobar",
@@ -30,9 +32,20 @@ User.create!(name:                     "Example User",
                      activated_at:          Time.zone.now)
 end
 
+# Microposts
 # Create fake microposts for users, enough to paginate...
 users = User.order(:created_at).take(6)
 50.times do
     content = Faker::Lorem.sentence(5)
     users.each { |user| user.microposts.create!(content: content) }
 end
+
+# Following relationships
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+# In following.each user from (ln 45) 'follows' another with user.follow; those users are called 'followed' in the enumerable...
+following.each { |followed| user.follow(followed) }
+# In followers.each follower (a single user on ln 47's 'followers') follows user, which is the first user through user.first (ln 45)...
+followers.each { |follower| follower.follow(user) }
